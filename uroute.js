@@ -19,7 +19,7 @@ function route() {
 	if (typeof next == 'object' && ('length' in next)) {children = next; next = null}
 	else if (next) {children = [next]}
 	if (args.length) {children = (children || []).concat(args)}
-	var result = Object.assign({path:path}, ctx)
+	var result = extend({path:path}, ctx)
 	if (typeof action == 'function') {result.action = action}
 	if (typeof children == 'object') {result.children = children}
 	return result
@@ -36,7 +36,7 @@ function match(routes, ctx) {
 		var promise = Promise.resolve(), next = match.next()
 		value = next.value; done = next.done
 		if (!done && value && value.route.action) {
-			var newCtx = Object.assign({}, context, next.value)
+			var newCtx = extend({}, context, next.value)
 			try {promise = Promise.resolve(value.route.action(newCtx, newCtx.params))}
 			catch(err) {promise = Promise.reject(err)}
 			if (errorRoute) {promise = promise.catch(function(err){
@@ -159,8 +159,16 @@ function decode(val) {
 }
 
 
-var cache = {}
+function extend(out) {
+  for (var src, i=1; i<arguments.length; i++) {
+    if ((src = arguments[i]) !== undefined && src !== null) {
+      for (var key in src) {out[key] = src[key]}
+    }
+  }
+  return out;
+}
 
+var cache = {}
 
 route.route = route
 route.match = match
