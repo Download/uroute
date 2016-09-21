@@ -1,4 +1,4 @@
-# uroute <sup><sub>0.1.0</sub></sup>
+# uroute <sup><sub>0.2.0</sub></sup>
 ## Microscopically small universal router
 
 [![npm](https://img.shields.io/npm/v/pkgcfg.svg)](https://npmjs.com/package/pkgcfg)
@@ -36,6 +36,16 @@ import route, { match } from 'uroute'
 // or
 import { route, match } from 'uroute'
 ```
+
+## Why
+Basically a port of Universal Router (https://www.kriasoft.com/universal-router/)
+by Konstantin Tarkus from Kriasoft LLC, this module does not use generators
+or async functions, two upcoming features in Javascript. Cool as they are, these
+currently require the [Babel](https://babeljs.io/) runtime, along with the
+regenerator runtime/transform to be loaded. This added a lot of weight to my app
+which does not need these, so I refactored Universal Router to not depend on
+these features. The result is this module. It passes all original tests, though
+I had to make some changes (as the tests were also using async functions).
 
 ## Usage
 Define a route tree. This can be done with the `route` function:

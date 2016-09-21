@@ -13,7 +13,7 @@ var matchRoute = require('../').match.matchRoute
 
 describe('matchRoute(route, baseUrl, path)', function(){
 
-  it('should match 0 routes (1)', function(){
+  it('matches 0 routes (1)', function(){
     var route = {
       path: '/',
     }
@@ -21,7 +21,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     expect(result).to.have.lengthOf(0)
   })
 
-  it('should match 0 routes (2)', function(){
+  it('matches 0 routes (2)', function(){
     var route = {
       path: '/a',
     }
@@ -29,7 +29,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     expect(result).to.have.lengthOf(0)
   })
 
-	it('should match 1 route (1)', function(){
+	it('matches 1 route (1)', function(){
 		var route = {
 			path: '/',
 		}
@@ -40,7 +40,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     expect(result[0]).to.have.deep.property('route.path', '/')
   })
 
-  it('should match 1 route (2)', function(){
+  it('matches 1 route (2)', function(){
     var route = {
       path: '/a',
     }
@@ -51,7 +51,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     expect(result[0]).to.have.deep.property('route.path', '/a')
   })
 
-  it('should match 2 routes (1)', function(){
+  it('matches 2 routes (1)', function(){
     var route = {
       path: '/',
       children: [
@@ -70,7 +70,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     expect(result[1]).to.have.deep.property('route.path', '/a')
   })
 
-  it('should match 2 routes (2)', function(){
+  it('matches 2 routes (2)', function(){
     var route = {
       path: '/a',
       children: [
@@ -94,7 +94,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     expect(result[2]).to.have.deep.property('route.path', '/c')
   })
 
-  it('should match 2 routes (3)', function(){
+  it('matches 2 routes (3)', function(){
     var route = {
       path: '/',
       children: [

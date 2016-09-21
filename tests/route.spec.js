@@ -10,7 +10,7 @@
 var expect = require('chai').expect
 var route = require('../')
 
-describe('route(path [, context] [, action], [, children | child] [, child] ..)', function(){
+describe('route(path [, { ...context }] [, action], [, children | child] [, child] ..)', function(){
 
   it('is a function', function(){
     expect(route).to.be.a.function

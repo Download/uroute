@@ -12,21 +12,21 @@ var expect = require('chai').expect
 var match = require('../').match
 
 
-describe('match(routes, { path, ...context })', function(){
+describe('match(routes, { path, ...context} )', function(){
 
-	it('should return a Promise', function(){
+	it('returns a Promise', function(){
 		var routes = []
 		var matched = match(routes, '/')
 		expect(matched instanceof Promise)
 	})
 
-  it('should resolve [undefined] if a route was not found', function(){
+  it('resolves to [undefined] if a route was not found', function(){
 		return match([], '/').then(function(result){
 			expect(result).to.be.undefined
 		})
 	})
 
-	it('should execute the matching route\'s action method and return its result', function(){
+	it('executes the matching route\'s action method and returns its result', function(){
 		var action = sinon.spy(() => 'b')
 		var routes = [
 			{ path: '/a', action },
@@ -38,7 +38,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should find the first route whose action method !== [undefined]', () => {
+	it('finds the first route whose action method !== [undefined]', () => {
 		var action1 = sinon.spy(() => undefined)
 		var action2 = sinon.spy(() => 'b')
 		var action3 = sinon.spy(() => 'b')
@@ -55,7 +55,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should be able to pass context variables to action methods', function(){
+	it('is able to pass context variables to action methods', function(){
 		var action = sinon.spy();
 		var routes = [
 			{ path: '/a', action },
@@ -67,7 +67,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should not call action methods of routes that don\'t match the URL path', function() {
+	it('does not call action methods of routes that don\'t match the URL path', function() {
 		var action = sinon.spy()
 		var routes = [
 			{ path: '/a', action },
@@ -77,7 +77,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should asynchronously route actions', function(){
+	it('asynchronously routes actions', function(){
 		var routes = [
 			{ path: '/a', action: function(){return 'b'} },
 		]
@@ -86,7 +86,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('URL parameters are captured and added to context.params', function(){
+	it('captures URL parameters and adds them to `context.params`', function(){
 		var action = sinon.spy();
 		var routes = [
 			{ path: '/:one/:two', action },
@@ -98,7 +98,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-  it('should support next() across multiple routes', function(){
+  it('supports `next()` across multiple routes', function(){
 		var log = [];
 		var routes = [
 			{
@@ -122,7 +122,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
   })
 
-	it('should support parametrized routes 1', function(){
+	it('supports parametrized routes 1', function(){
 		var action = sinon.spy()
 		var routes = [
 		  { path: '/path/:a/other/:b', action },
@@ -136,7 +136,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should support child routes (1)', function(){
+	it('supports child routes (1)', function(){
 		var action = sinon.spy();
 		var routes = [
 			{
@@ -158,7 +158,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should support child routes (2)', function(){
+	it('supports child routes (2)', function(){
 		var action = sinon.spy();
 		var routes = [
 			{
@@ -180,7 +180,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should support child routes (3)', function(){
+	it('supports child routes (3)', function(){
 		var action1 = sinon.spy(() => undefined);
 		var action2 = sinon.spy(() => undefined);
 		var action3 = sinon.spy(() => undefined);
@@ -214,7 +214,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should re-throw an error', function(){
+	it('re-throws errors', function(){
 		var error = new Error('test error');
 		var routes = [
 			{
@@ -232,7 +232,7 @@ describe('match(routes, { path, ...context })', function(){
 		})
 	})
 
-	it('should redirect to an error page if it exists', function(){
+	it('redirects to an error page if it exists', function(){
 		var error = new Error('test error')
 		var action = sinon.spy(() => 'b')
 		var routes = [

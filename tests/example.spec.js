@@ -46,7 +46,7 @@ describe('Example 1', function(){
 
 describe('Example 2', function(){
 
-	it('demonstrates using route actions as middleware', function(){
+	it('demonstrates route parameters', function(){
 
 		var routes = route('/:one/:two', function(context){
 			return context.params.one + ', ' + context.params.two + ', ...';
