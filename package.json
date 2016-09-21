@@ -1,0 +1,27 @@
+{
+  "name": "uroute",
+  "version": "0.1.0",
+  "description": "Microscopically small universal router",
+  "main": "uroute.js",
+  "scripts": {
+    "test": "mocha --ui bdd tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/download/uroute.git"
+  },
+  "author": "Stijn de Witt <stijndewitt@hotmail.com>",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/download/uroute/issues"
+  },
+  "homepage": "https://github.com/download/uroute",
+  "devDependencies": {
+		"chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "path-to-regexp": "^1.5.3"
+  }
+}
