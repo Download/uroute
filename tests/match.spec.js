@@ -27,7 +27,7 @@ describe('match(routes, { path, ...context} )', function(){
 	})
 
 	it('executes the matching route\'s action method and returns its result', function(){
-		var action = sinon.spy(() => 'b')
+		var action = sinon.spy(function(){return 'b'})
 		var routes = [
 			{ path: '/a', action },
 		]
@@ -38,10 +38,10 @@ describe('match(routes, { path, ...context} )', function(){
 		})
 	})
 
-	it('finds the first route whose action method !== [undefined]', () => {
-		var action1 = sinon.spy(() => undefined)
-		var action2 = sinon.spy(() => 'b')
-		var action3 = sinon.spy(() => 'b')
+	it('finds the first route whose action method !== [undefined]', function(){
+		var action1 = sinon.spy(function(){})
+		var action2 = sinon.spy(function(){return 'b'})
+		var action3 = sinon.spy(function(){return 'b'})
 		var routes = [
 			{ path: '/a', action: action1 },
 			{ path: '/a', action: action2 },
@@ -181,9 +181,9 @@ describe('match(routes, { path, ...context} )', function(){
 	})
 
 	it('supports child routes (3)', function(){
-		var action1 = sinon.spy(() => undefined);
-		var action2 = sinon.spy(() => undefined);
-		var action3 = sinon.spy(() => undefined);
+		var action1 = sinon.spy(function(){});
+		var action2 = sinon.spy(function(){});
+		var action3 = sinon.spy(function(){});
 		var routes = [
 			{
 				path: '/a',
@@ -234,7 +234,7 @@ describe('match(routes, { path, ...context} )', function(){
 
 	it('redirects to an error page if it exists', function(){
 		var error = new Error('test error')
-		var action = sinon.spy(() => 'b')
+		var action = sinon.spy(function(){return 'b'})
 		var routes = [
 			{
 			  path: '/a',
