@@ -12,6 +12,7 @@
   },
   "author": "Stijn de Witt <stijndewitt@hotmail.com>",
   "license": "CC-BY-4.0",
+	"license-universal-router": "MIT",
   "bugs": {
     "url": "https://github.com/download/uroute/issues"
   },

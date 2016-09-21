@@ -182,3 +182,7 @@ Copyright 2016 by [Stijn de Witt](http://StijnDeWitt.com). Some rights reserved.
 ## License
 
 [Creative Commons Attribution 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/)
+
+Based on Universal Router (https://www.kriasoft.com/universal-router/)
+Copyright © 2015-2016 Konstantin Tarkus, Kriasoft LLC. All rights reserved.
+License: MIT. SEE LICENSE-universal-router.txt.

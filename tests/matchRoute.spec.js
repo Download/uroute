@@ -4,7 +4,7 @@
  *
  * Based on Universal Router (https://www.kriasoft.com/universal-router/)
  * Copyright © 2015-2016 Konstantin Tarkus, Kriasoft LLC. All rights reserved.
- * license: Apache-2.0. SEE LICENSE-universal-router.txt.
+ * license: MIT. SEE LICENSE-universal-router.txt.
  */
 
 var expect = require('chai').expect
