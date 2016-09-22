@@ -7,7 +7,6 @@
  * license: MIT. SEE LICENSE-universal-router.txt.
  */
 
-var parse = require('url').parse
 var pathToRegExp = require('path-to-regexp')
 
 
