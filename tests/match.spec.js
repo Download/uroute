@@ -141,11 +141,11 @@ describe('match(routes, { path, ...context} )', function(){
 		var routes = [
 			{
 				path: '/',
-				action,
+				action:action,
 				children: [
 					{
 						path: '/a',
-						action,
+						action:action,
 					},
 				],
 			},
@@ -163,11 +163,11 @@ describe('match(routes, { path, ...context} )', function(){
 		var routes = [
 			{
 				path: '/a',
-				action,
+				action:action,
 				children: [
 					{
 						path: '/b',
-						action,
+						action:action,
 					},
 				],
 			},
@@ -242,7 +242,7 @@ describe('match(routes, { path, ...context} )', function(){
 			},
 			{
 			  path: '/error',
-			  action,
+			  action:action,
 			},
 		]
 
