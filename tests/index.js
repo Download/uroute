@@ -6,7 +6,8 @@
  * Copyright © 2015-2016 Konstantin Tarkus, Kriasoft LLC. All rights reserved.
  * license: MIT. SEE LICENSE-universal-router.txt.
  */
-if (typeof Promise == 'undefined') {require('promise-polyfill')}
+var g = typeof window == 'object' ? window : (typeof global == 'object' ? global : this)
+if (! g.Promise) {g.Promise = require('promise-polyfill')}
 
 require('./route.spec.js')
 require('./match.spec.js')
