@@ -215,11 +215,11 @@ describe('match(routes, { path, ...context} )', function(){
 	})
 
 	it('re-throws errors', function(){
-		var error = new Error('test error');
+		var error = new Error('test error')
 		var routes = [
 			{
 				path: '/a',
-				action() { throw error; },
+				action: function() { throw error },
 			},
 		]
 
@@ -238,7 +238,7 @@ describe('match(routes, { path, ...context} )', function(){
 		var routes = [
 			{
 			  path: '/a',
-			  action() { throw error; },
+			  action() { throw error },
 			},
 			{
 			  path: '/error',
