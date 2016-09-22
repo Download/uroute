@@ -17,7 +17,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     var route = {
       path: '/',
     }
-    var result = Array.from(matchRoute(route, '', '/a'))
+    var result = iteratorToArray(matchRoute(route, '', '/a'))
     expect(result).to.have.lengthOf(0)
   })
 
@@ -25,7 +25,7 @@ describe('matchRoute(route, baseUrl, path)', function(){
     var route = {
       path: '/a',
     }
-    var result = Array.from(matchRoute(route, '', '/b'))
+    var result = iteratorToArray(matchRoute(route, '', '/b'))
     expect(result).to.have.lengthOf(0)
   })
 
