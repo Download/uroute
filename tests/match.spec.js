@@ -238,7 +238,7 @@ describe('match(routes, { path, ...context} )', function(){
 		var routes = [
 			{
 			  path: '/a',
-			  action() { throw error },
+			  action: function() { throw error },
 			},
 			{
 			  path: '/error',
