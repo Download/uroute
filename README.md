@@ -1,4 +1,4 @@
-# uroute <sup><sub>0.3.0</sub></sup>
+# uroute <sup><sub>0.4.0</sub></sup>
 ## Microscopically small universal router
 
 [![npm](https://img.shields.io/npm/v/pkgcfg.svg)](https://npmjs.com/package/pkgcfg)
