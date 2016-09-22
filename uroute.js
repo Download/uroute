@@ -101,8 +101,8 @@ function matchRoute(route, baseUrl, path) {
 					return {
 						done: false,
 						value: {
-							route,
-							baseUrl,
+							route:route,
+							baseUrl:baseUrl,
 							path: match.path,
 							params: match.params,
 						}
