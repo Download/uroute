@@ -29,7 +29,7 @@ function route() {
 function match(routes, ctx) {
 	var context = typeof ctx === 'string' || ctx instanceof String ? {path: ctx} : ctx,
 			root = Array.isArray(routes) ? { path: '/', children: routes } : routes,
-			errorRoute = root.children && root.children.find(function(x){return x.path === '/error'}),
+			errorRoute = root.children && root.children.filter(function(x){return x.path === '/error'})[0],
 			match = matchRoute(root, '', context.path), result, value, done = false
 
 	context.next = function() {
