@@ -115,7 +115,7 @@ function matchRoute(route, baseUrl, path) {
 					var newPath = path.substr(match.path.length);
 					childMatches = matchRoute(childRoute,
 						baseUrl + (match.path === '/' ? '' : match.path),
-						newPath.startsWith('/') ? newPath : '/' + newPath
+						newPath.indexOf('/') === 0 ? newPath : '/' + newPath
 					)
 				}
 				var childMatch = childMatches.next()
