@@ -29,7 +29,7 @@ describe('match(routes, { path, ...context} )', function(){
 	it('executes the matching route\'s action method and returns its result', function(){
 		var action = sinon.spy(function(){return 'b'})
 		var routes = [
-			{ path: '/a', action },
+			{ path: '/a', action:action },
 		]
 		return match(routes, '/a').then(function(result){
 			expect(action.calledOnce).to.be.true;
@@ -58,7 +58,7 @@ describe('match(routes, { path, ...context} )', function(){
 	it('is able to pass context variables to action methods', function(){
 		var action = sinon.spy();
 		var routes = [
-			{ path: '/a', action },
+			{ path: '/a', action:action },
 		]
 		return match(routes, { path: '/a', test: 'b' }).then(function(result){
 			expect(action.calledOnce).to.be.true
@@ -70,7 +70,7 @@ describe('match(routes, { path, ...context} )', function(){
 	it('does not call action methods of routes that don\'t match the URL path', function() {
 		var action = sinon.spy()
 		var routes = [
-			{ path: '/a', action },
+			{ path: '/a', action:action },
 		]
 		return match(routes, '/b').then(function(result){
 			expect(action.called).to.be.false
@@ -89,7 +89,7 @@ describe('match(routes, { path, ...context} )', function(){
 	it('captures URL parameters and adds them to `context.params`', function(){
 		var action = sinon.spy();
 		var routes = [
-			{ path: '/:one/:two', action },
+			{ path: '/:one/:two', action:action },
 		]
 		return match(routes, { path: '/a/b' }).then(function(result){
 			expect(action.calledOnce).to.be.true
@@ -125,7 +125,7 @@ describe('match(routes, { path, ...context} )', function(){
 	it('supports parametrized routes 1', function(){
 		var action = sinon.spy()
 		var routes = [
-		  { path: '/path/:a/other/:b', action },
+		  { path: '/path/:a/other/:b', action:action },
 		]
 		return match(routes, '/path/1/other/2').then(function(result){
 			expect(action.calledOnce).to.be.true
