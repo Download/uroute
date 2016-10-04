@@ -10,23 +10,38 @@
 var expect = require('chai').expect
 var route = require('../')
 
-describe('route(path [, { ...context }] [, action], [, children | child] [, child] ..)', function(){
+describe('route ([path] [, context] [, action], [, children] [, child] [, child] ..)', function(){
 
   it('is a function', function(){
     expect(route).to.be.a.function
   })
 
-  it('accepts a required `path` argument', function(){
+  it('accepts an optional `path` argument, typeof string', function(){
     var result = route('/mypath');
     expect(result).to.deep.equal({path: '/mypath'})
   })
 
-	it('accepts an optional `context` argument', function(){
+  it('accepts an optional `path` argument, instanceof String', function(){
+    var result = route(new String('/mypath'));
+    expect(result).to.deep.equal({path: '/mypath'})
+  })
+
+	it('accepts an optional `context` argument, typeof object, !isArray', function(){
+    var result = route({test:'test'});
+    expect(result).to.deep.equal({test:'test'})
+  })
+
+	it('accepts both `path` and `context` simultaneously', function(){
     var result = route('/mypath', {test:'test'});
     expect(result).to.deep.equal({path: '/mypath', test:'test'})
   })
 
-	it('accepts an optional `action` argument', function(){
+	it('uses `path` when given both `path` and `context.path`', function(){
+    var result = route('/mypath', {test:'test', path:'/failed'});
+    expect(result).to.deep.equal({path: '/mypath', test:'test'})
+  })
+
+	it('accepts an optional `action` argument, typeof function', function(){
 		var action = function(){}
     var result = route('/mypath', action);
     expect(result).to.deep.equal({path: '/mypath', action:action})

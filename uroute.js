@@ -11,14 +11,16 @@ var pathToRegExp = require('path-to-regexp')
 
 
 function route() {
-	var args = Array.prototype.slice.call(arguments), path = args.shift(),
-			next = args.shift(), ctx = {}, action, children
-	if (typeof next == 'object' && (! ('length' in next))) {ctx = next; next = args.shift()}
+	var args = Array.prototype.slice.call(arguments), 
+			next = args.shift(), 
+			path, ctx = {}, action, children
+	if (typeof next == 'string' || next instanceof String) {path = next.toString(); next = args.shift()}
+	if (typeof next == 'object' && (! Array.isArray(next))) {ctx = next; next = args.shift()}
 	if (typeof next == 'function') {action = next; next = args.shift()}
-	if (typeof next == 'object' && ('length' in next)) {children = next; next = null}
+	if (typeof next == 'object' && (Array.isArray(next))) {children = next; next = null}
 	else if (next) {children = [next]}
 	if (args.length) {children = (children || []).concat(args)}
-	var result = extend({path:path}, ctx)
+	var result = path ? extend({}, ctx, {path:path}) : extend({}, ctx)
 	if (typeof action == 'function') {result.action = action}
 	if (typeof children == 'object') {result.children = children}
 	return result
