@@ -1,10 +1,10 @@
 # uroute <sup><sub>1.0.0</sub></sup>
 ## Microscopically small universal router
 
-[![npm](https://img.shields.io/npm/v/pkgcfg.svg)](https://npmjs.com/package/pkgcfg)
-[![license](https://img.shields.io/npm/l/pkgcfg.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![travis](https://img.shields.io/travis/Download/pkgcfg.svg)](https://travis-ci.org/Download/pkgcfg)
-[![greenkeeper](https://img.shields.io/david/Download/pkgcfg.svg)](https://greenkeeper.io/)
+[![npm](https://img.shields.io/npm/v/uroute.svg)](https://npmjs.com/package/uroute)
+[![license](https://img.shields.io/npm/l/uroute.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![travis](https://img.shields.io/travis/Download/uroute.svg)](https://travis-ci.org/Download/uroute)
+[![greenkeeper](https://img.shields.io/david/Download/uroute.svg)](https://greenkeeper.io/)
 ![mind BLOWN](https://img.shields.io/badge/mind-BLOWN-ff69b4.svg)
 
 <sup><sub><sup><sub>.</sub></sup></sub></sup>
