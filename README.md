@@ -1,4 +1,4 @@
-# uroute <sup><sub>1.0.0</sub></sup>
+# uroute <sup><sub>1.1.0</sub></sup>
 ## Microscopically small universal router
 
 [![npm](https://img.shields.io/npm/v/uroute.svg)](https://npmjs.com/package/uroute)
@@ -9,7 +9,7 @@
 
 <sup><sub><sup><sub>.</sub></sup></sub></sup>
 
-**You route baby!**
+![uroute](https://rawgit.com/download/uroute/1.1.0/uroute.png)
 
 <sup><sub><sup><sub>.</sub></sup></sub></sup>
 

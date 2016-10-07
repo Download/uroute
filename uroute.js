@@ -21,7 +21,9 @@ function route() {
 	else if (next) {children = [next]}
 	if (args.length) {children = (children || []).concat(args)}
 	var result = path ? extend({}, ctx, {path:path}) : extend({}, ctx)
+	if (! result.path) {result.path = '/'}
 	if (typeof action == 'function') {result.action = action}
+	else if (children) {result.action = function next(ctx) {return ctx.next()}}
 	if (typeof children == 'object') {result.children = children}
 	return result
 }

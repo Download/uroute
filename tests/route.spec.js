@@ -27,8 +27,8 @@ describe('route ([path] [, context] [, action], [, children] [, child] [, child]
   })
 
 	it('accepts an optional `context` argument, typeof object, !isArray', function(){
-    var result = route({test:'test'});
-    expect(result).to.deep.equal({test:'test'})
+    var result = route({path:'/test'});
+    expect(result).to.deep.equal({path:'/test'})
   })
 
 	it('accepts both `path` and `context` simultaneously', function(){
@@ -39,6 +39,11 @@ describe('route ([path] [, context] [, action], [, children] [, child] [, child]
 	it('uses `path` when given both `path` and `context.path`', function(){
     var result = route('/mypath', {test:'test', path:'/failed'});
     expect(result).to.deep.equal({path: '/mypath', test:'test'})
+  })
+
+	it('automatically sets `path` to \'/\' when it was not given', function(){
+    var result = route({test:'test'});
+    expect(result).to.deep.equal({path: '/', test:'test'})
   })
 
 	it('accepts an optional `action` argument, typeof function', function(){
@@ -54,21 +59,22 @@ describe('route ([path] [, context] [, action], [, children] [, child] [, child]
   })
 
 	it('accepts an optional `children` argument, which is an array', function(){
-    var result = route('/mypath', [route('/a')]);
-    expect(result).to.deep.equal({path: '/mypath', children:[{path:'/a'}]})
+		function action(){}
+    var result = route('/mypath', action, [route('/a')]);
+    expect(result).to.deep.equal({path: '/mypath', action:action, children:[{path:'/a'}]})
   })
 
 	it('accepts optional `child` arguments following `context` or `action`', function(){
-    var result = route('/mypath', {test:'test'},
+		function action(){}
+    var result = route('/mypath', {test:'test'}, action, 
 			route('/a'),
 			route('/b')
 		)
-    expect(result).to.deep.equal({path: '/mypath', test:'test', children:[
+    expect(result).to.deep.equal({path: '/mypath', test:'test', action:action, children:[
 			{path:'/a'},
 			{path:'/b'}
 		]})
 
-		var action = function(){}
 		var result = route('/mypath', action,
 			route('/a'),
 			route('/b')
@@ -80,14 +86,23 @@ describe('route ([path] [, context] [, action], [, children] [, child] [, child]
   })
 
 	it('accepts optional `child` arguments following `children`', function(){
+		function action(){}
+    var result = route('/mypath', action, [],
+			route('/a'),
+			route('/b')
+		);
+    expect(result).to.deep.equal({path: '/mypath', action:action, children:[
+			{path:'/a'},
+			{path:'/b'}
+		]})
+  })
+
+	it('automatically adds a `next` action if there are children but no action', function(){
     var result = route('/mypath', [],
 			route('/a'),
 			route('/b')
 		);
-    expect(result).to.deep.equal({path: '/mypath', children:[
-			{path:'/a'},
-			{path:'/b'}
-		]})
+    expect(result.action).to.be.a.function
   })
 
 	it('returns a route tree', function(){
