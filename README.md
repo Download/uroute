@@ -1,6 +1,8 @@
 # uroute <sup><sub>1.1.0</sub></sup>
 ## Microscopically small universal router
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Download/uroute.svg)](https://greenkeeper.io/)
+
 [![npm](https://img.shields.io/npm/v/uroute.svg)](https://npmjs.com/package/uroute)
 [![license](https://img.shields.io/npm/l/uroute.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![travis](https://img.shields.io/travis/Download/uroute.svg)](https://travis-ci.org/Download/uroute)
