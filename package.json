@@ -21,7 +21,7 @@
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
 		"promise-polyfill": "^6.0.2",
-    "sinon": "^1.17.6"
+    "sinon": "^4.4.6"
   },
   "dependencies": {
     "path-to-regexp": "^1.5.3"
