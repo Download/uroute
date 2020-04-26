@@ -19,7 +19,7 @@
   "homepage": "https://github.com/download/uroute",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.2",
+    "mocha": "^7.1.2",
 		"promise-polyfill": "^7.1.1",
     "sinon": "^1.17.6"
   },
